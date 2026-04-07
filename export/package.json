@@ -1,0 +1,12 @@
+{
+  "name": "sotn-report-generator",
+  "version": "1.0.0",
+  "description": "Scripts for generating Swarm State of the Network monthly reports",
+  "license": "ISC",
+  "dependencies": {
+    "cli-progress": "^3.12.0",
+    "cli-table3": "^0.6.5",
+    "jsonstream": "^1.0.3",
+    "progress": "^2.0.3"
+  }
+}

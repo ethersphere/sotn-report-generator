@@ -1,0 +1,22 @@
+# Runtime data (downloaded by scripts, not committed)
+bee-scripts/
+swarmscan/
+network/
+export/readsi/
+export/charts/
+
+# Generated articles
+export/swarm-state-of-the-network-*.md
+
+# Node
+export/node_modules/
+export/package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Claude Code internals (keep commands/)
+.claude/settings.json
+.claude/settings.local.json

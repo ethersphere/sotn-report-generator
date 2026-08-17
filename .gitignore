@@ -26,3 +26,4 @@ __pycache__/
 
 # Packaged report bundle (monthly output)
 export/swarm-sotn-*.zip
+export/swarm-state-of-the-network-*-preview.html

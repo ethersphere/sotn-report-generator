@@ -62,7 +62,7 @@ def extract_charts(markdown):
             raw_value = re.sub(r'\*\*', '', cols[1]).replace(',', '').strip()
             try:
                 value = float(raw_value)
-                labels.append(cols[0])
+                labels.append(re.sub(r'\*\*', '', cols[0]).strip())
                 values.append(value)
             except ValueError:
                 pass
@@ -123,6 +123,10 @@ def make_chart(title, y_label, labels, values, filename, y_format, output_dir):
     # Rotate x labels if needed
     if len(labels) > 4:
         plt.xticks(rotation=0)
+
+    # Bold the current (latest) month's tick label, matching the source table
+    fig.canvas.draw()
+    ax.get_xticklabels()[-1].set_fontweight('bold')
 
     plt.tight_layout(pad=1.2)
     out_path = os.path.join(output_dir, filename)

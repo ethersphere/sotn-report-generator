@@ -20,3 +20,10 @@ __pycache__/
 # Claude Code internals (keep commands/)
 .claude/settings.json
 .claude/settings.local.json
+
+# macOS
+.DS_Store
+
+# Packaged report bundle (monthly output)
+export/swarm-sotn-*.zip
+export/swarm-state-of-the-network-*-preview.html

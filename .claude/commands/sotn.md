@@ -359,11 +359,33 @@ This will generate one PNG per chart section and save them to `export/charts/`.
 
 ---
 
-## Step 8 — Report back to the user
+## Step 8 — Package the report for distribution
 
-After the charts are generated, tell the user:
+After the charts are generated, bundle the article, charts, and a self-contained
+HTML preview into a single zip so the report can be handed off as one file. Run from
+the repo root:
+
+```bash
+python export/package-report.py YEAR MONTH
+```
+
+Example for June 2026: `python export/package-report.py 2026 6`
+
+This creates `export/swarm-sotn-{month-lowercase}-{YYYY}.zip` containing:
+- `swarm-state-of-the-network-{month-lowercase}-{YYYY}.md` — the Hugo article, unchanged (`/uploads/` paths intact for the blog)
+- `charts/` — the 7 chart PNGs for the month
+- `swarm-state-of-the-network-{month-lowercase}-{YYYY}-preview.html` — a self-contained preview with the charts embedded as base64, so a recipient can read the whole report by opening it in a browser (no tooling required)
+
+The script uses only the Python standard library (no extra dependencies).
+
+---
+
+## Step 9 — Report back to the user
+
+After the report is packaged, tell the user:
 
 1. The article has been saved to `export/swarm-state-of-the-network-{month-lowercase}-{YYYY}.md`
 2. Charts have been generated and saved to `export/charts/` — copy them to the blog's `/static/uploads/` directory
-3. The banner image at `/uploads/sotn-MMM-YY.jpg` still needs to be provided
-4. The `draft = true` flag is set — change to `false` when ready to publish
+3. A distributable bundle is at `export/swarm-sotn-{month-lowercase}-{YYYY}.zip` (article + charts + self-contained HTML preview) — ready to pass on
+4. The banner image at `/uploads/sotn-MMM-YY.jpg` still needs to be provided
+5. The `draft = true` flag is set — change to `false` when ready to publish
